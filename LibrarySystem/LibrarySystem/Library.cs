@@ -1,4 +1,4 @@
-﻿namespace Lesson02.Library;
+﻿namespace LibrarySystem;
 
 public class Library
 {
