@@ -33,12 +33,14 @@ namespace Lesson02.Library
         public string BorrowerNumber
         {
             get { return _borrowerNumber; }
+            init { _borrowerNumber = value; }
         }
 
         public int NumberOfBooksLoaned
         {
-            get { return _numberOfBooksLoaned; } 
-            private set; }
+            get { return _numberOfBooksLoaned; }
+            private set { _numberOfBooksLoaned = value; }
+        }
 
         public void BorrowBook()
         {
