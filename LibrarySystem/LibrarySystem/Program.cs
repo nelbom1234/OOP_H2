@@ -51,10 +51,10 @@ class Program
 
     private static void ShowMenu()
     {
-        Console.WriteLine("Vaelg en handling:");
-        Console.WriteLine("1. Vis alle boeger");
+        Console.WriteLine("Vælg en handling:");
+        Console.WriteLine("1. Vis alle bøger");
         Console.WriteLine("2. Søg efter en bog");
-        Console.WriteLine("3. Laan en bog");
+        Console.WriteLine("3. Lån en bog");
         Console.WriteLine("4. Aflever en bog");
         Console.WriteLine("5. Afslut");
     }
@@ -69,7 +69,7 @@ class Program
 
     private static void SearchBook(Library library)
     {
-        Console.WriteLine("Indtast et soege argument");
+        Console.WriteLine("Indtast et søge argument");
         var search = Console.ReadLine()!;
         var result = library.BookCollection.Where(book => book.Title.Contains(search));
 
@@ -81,7 +81,7 @@ class Program
 
     private static void BorrowBook(Library library)
     {
-        Console.WriteLine("Indtast ISBN på den bog du ønsker at laane");
+        Console.WriteLine("Indtast ISBN på den bog du ønsker at låne");
         var isbn = Console.ReadLine()!;
         
         // Find the first book that matches isbn and is not already on loan
@@ -100,7 +100,7 @@ class Program
         }
         
         book.CheckOut();
-        Console.WriteLine($"Du har laant {book.Title}");
+        Console.WriteLine($"Du har lånt {book.Title}");
     }
 
     private static void ReturnBook(Library library)
