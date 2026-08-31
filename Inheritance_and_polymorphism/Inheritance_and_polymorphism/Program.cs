@@ -3,8 +3,10 @@ class Program
 {
     /* Kontrolspørgsmål
      * 1. Det kan man se på keywordet "override" på de metoder der bliver overskrevet
-     * 2. It will use the call from the parent class unless you use the keyword "new"
-     * to tell the compiler that it should replace the inherited method with the new method
+     * 2. Den vil bruge kaldet fra forældre klassen med mindre man bruger keywordet "new"
+     * for at fortælle compileren at vi ønsker at erstatte den nedarvede metode med den nye
+     * 3. Den vælger den afhængig af hvor mange argumenter der er og hvad type de argumenter er
+     * 4. Nej, fordi override kan ikke fjerne/tilføje argumenter. Den skal være nøjagtig magen til den man overrider
      */
     
     static void Main(string[] args)
@@ -24,6 +26,12 @@ class Program
             Console.WriteLine(employee.Description());
         }
         
-        Console.WriteLine("Samlet løn: {0} kr.",totalPay);
+        Console.WriteLine($"Samlet løn: {totalPay} kr.");
+
+        var salaryCalculator = new SalaryCalculator();
+        
+        Console.WriteLine($"base bonus: {salaryCalculator.CalculateBonus(20000)}");
+        Console.WriteLine($"Percentage bonus: {salaryCalculator.CalculateBonus(20000, 0.07m)}");
+        Console.WriteLine($"Seniority bonus: {salaryCalculator.CalculateBonus(20000, 0.07m, 5)}");
     }
 }
