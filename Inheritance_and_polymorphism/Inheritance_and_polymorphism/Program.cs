@@ -8,7 +8,6 @@ class Program
      * 3. Den vælger den afhængig af hvor mange argumenter der er og hvad type de argumenter er
      * 4. Nej, fordi override kan ikke fjerne/tilføje argumenter. Den skal være nøjagtig magen til den man overrider
      */
-    
     static void Main(string[] args)
     {
         var employees = new List<Employee>
@@ -22,6 +21,13 @@ class Program
         decimal totalPay = 0;
         foreach (var employee in employees)
         {
+            if (employee is HourlyEmployee hourlyEmployee)
+            {
+                // This method only exists on HourlyEmployee,
+                // so we need to cast it to call the method using the "is" keyword above
+                hourlyEmployee.RegisterOvertime(10);
+            }
+            
             totalPay += employee.CalculateSalary();
             Console.WriteLine(employee.Description());
         }

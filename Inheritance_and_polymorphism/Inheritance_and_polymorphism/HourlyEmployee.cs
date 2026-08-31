@@ -23,4 +23,8 @@ public class HourlyEmployee : Employee
         return HourlyRate * (decimal)HoursWorked;
     }
     
+    public void RegisterOvertime(double extraHours)
+    {
+        HoursWorked += extraHours;
+    }
 }
