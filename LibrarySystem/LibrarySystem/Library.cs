@@ -12,6 +12,6 @@ public class Library
     public List<Book> BookCollection
     {
         get => this._bookCollection; 
-        set => this._bookCollection = value;
+        private set => this._bookCollection = value;
     }
 }
