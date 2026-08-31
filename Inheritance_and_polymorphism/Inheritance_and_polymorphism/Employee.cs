@@ -12,11 +12,11 @@ public class Employee
         HireDate = hireDate;
     }
     
-    public string Name { get; private set; }
+    private string Name { get; set; }
     
-    public string EmployeeId { get; private set; }
+    private string EmployeeId { get; set; }
     
-    public DateTime HireDate { get; init; }
+    private DateTime HireDate { get; init; }
 
     public virtual decimal CalculateSalary()
     {
