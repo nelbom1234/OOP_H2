@@ -3,7 +3,8 @@ class Program
 {
     /* Kontrolspørgsmål
      * 1. Det kan man se på keywordet "override" på de metoder der bliver overskrevet
-     * 2. 
+     * 2. It will use the call from the parent class unless you use the keyword "new"
+     * to tell the compiler that it should replace the inherited method with the new method
      */
     
     static void Main(string[] args)
