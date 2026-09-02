@@ -1,6 +1,6 @@
 ﻿namespace Abstraction;
 
-public class Car : Vehicle
+public class Car : Vehicle, IUdlejelig
 {
     public int DoorCount { get; set; }
 
@@ -20,9 +20,13 @@ public class Car : Vehicle
         return base.Description() + $", {DoorCount} døre";
     }
 
-    public override decimal CalculateAnnualTax()
+    public override decimal BeregnAarsafgift()
     {
-        // Biler har en højere fiktiv afgift end standarden.
-        return 2400m;
+        return TopSpeedKmh * 10m;
+    }
+
+    public decimal BeregnLejepris(int antalDage)
+    {
+        return antalDage * 1000;
     }
 }

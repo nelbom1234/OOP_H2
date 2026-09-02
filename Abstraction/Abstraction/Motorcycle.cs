@@ -1,6 +1,6 @@
 ﻿namespace Abstraction;
 
-public class Motorcycle : Vehicle
+public class Motorcycle : Vehicle, IUdlejelig
 {
     public bool RequiresHelmet { get; set; }
 
@@ -16,7 +16,13 @@ public class Motorcycle : Vehicle
         return base.Description() + $", {helmetInfo}";
     }
 
-    // Bemærk: Motorcycle overrider IKKE CalculateAnnualTax().
-    // Det er helt lovligt - så bruges basisklassens standardversion (1000m)
-    // automatisk, når CalculateAnnualTax() kaldes på et Motorcycle-objekt.
+    public override decimal BeregnAarsafgift()
+    {
+        return TopSpeedKmh * 5m;
+    }
+
+    public decimal BeregnLejepris(int antalDage)
+    {
+        return antalDage * 600;
+    }
 }

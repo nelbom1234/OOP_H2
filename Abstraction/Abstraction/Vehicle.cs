@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Abstraction
 {
-    public class Vehicle
+    public abstract class Vehicle
     {
         public string Brand { get; set; }
         public string Model { get; set; }
@@ -28,12 +28,6 @@ namespace Abstraction
             return $"{Brand} {Model}, topfart {TopSpeedKmh} km/t";
         }
 
-        // En anden virtual-metode, der beregner en fiktiv årlig afgift.
-        // Basisklassens version er en "fornuftig standard", som afledte
-        // klasser kan vælge at overskrive, hvis de har brug for noget andet.
-        public virtual decimal CalculateAnnualTax()
-        {
-            return 1000m;
-        }
+        public abstract decimal BeregnAarsafgift();
     }
 }
