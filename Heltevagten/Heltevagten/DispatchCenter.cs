@@ -28,7 +28,7 @@ public class DispatchCenter
         Incidents.Add(incident);
     }
 
-    public Hero AssignHeroToNextIncident()
+    public (Hero, Incident, Action<Incident>) AssignHeroToNextIncident()
     {
         var nextIncident = Helper.FindFirst(Incidents, incident => !incident.IsResolved);
 
@@ -46,10 +46,10 @@ public class DispatchCenter
         
         assignedHero.AssignToIncident();
 
-        return assignedHero;
+        return (assignedHero, nextIncident, ResolveIncident);
     }
 
-    private void ResolveIncident(Incident incident, Action<Incident> action)
+    private void ResolveIncident(Incident incident)
     {
         incident.ResolveIncident();
     }
